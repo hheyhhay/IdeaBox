@@ -2,7 +2,6 @@ html {
   height: 100%;
   width: 100%;
   background-color: #EAEAF4;
-
 }
 body {
   display: flex;
@@ -72,7 +71,16 @@ body {
   border-radius: 3px;
   width: 100%;
   color: none;
+}
 
+.form-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  height: 25%
+  /* border: 2px solid white;
+} */
 }
 
 
@@ -134,17 +142,50 @@ body {
   font-size: 25px;
 }
 
+.whole-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #1F1F3D;
+  height: 22%;
+  width: 21%;
+  margin: 12px;
+}
 
-.comment-card {
+.top-of-comment {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1F1F3D;
+  height: 10%;
+  width: 100%;
+  /* border: 10px solid red; */
+}
+
+.comment-area {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  border: 1px solid black;
-  height: 50%;
-  width: 25%:
+  align-items: flex-start;
+  height: 80%;
+  width: 100%;
+  font-size: 12px;
+  padding: 5px;
 }
-.comment-card{
+
+.comment-section {
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #5356A4;
+  height: 10%;
+  width: 100%;
+  font-size: small;
+  color: white;
+  /* border: 5px solid black; */
 }
+
+.image-size {
+  height: 80%
+}
+/* .comment-text {
+  display: flex;
+
+} */
