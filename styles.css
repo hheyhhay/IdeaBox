@@ -145,16 +145,19 @@ body {
 .whole-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border: 1px solid #1F1F3D;
   height: 22%;
   width: 21%;
   margin: 12px;
 }
 
+
 .top-of-comment {
   display: flex;
   justify-content: space-between;
   background-color: #1F1F3D;
+  color: white;
   height: 10%;
   width: 100%;
   /* border: 10px solid red; */
@@ -183,7 +186,8 @@ body {
 }
 
 .image-size {
-  height: 80%
+  height: 80%;
+  /* background-color: pink; */
 }
 /* .comment-text {
   display: flex;
