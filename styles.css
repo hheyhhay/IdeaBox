@@ -212,3 +212,7 @@ body {
 .button-change {
   background-color: #5356A4;
 }
+
+.hidden {
+  display: none;
+}
