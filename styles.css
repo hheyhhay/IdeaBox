@@ -9,6 +9,7 @@ body {
   margin: 0;
   height: 100%;
   font-family: 'Open Sans';
+  font-size: 24px;
 }
 
 .side-header {
@@ -25,18 +26,20 @@ body {
   background-color: #1F1F3D;
   font-weight: bold;
   color: #E9E9F3;
+
 }
 .filter{
   border-top: 2px solid #353567;
   border-bottom:  2px solid #353567;
   padding-bottom: 40px;
   padding: 20px;
-  font-size: 12px;
+
 }
 
 .show-star-btn {
   background-color: #5356A4;
   font-family: 'Open Sans';
+  font-size: 24px;
   font-weight: bold;
   color: #E9E9F3;
   width: 90%;
@@ -63,7 +66,7 @@ body {
   height: 70%;
   background-color: #A9AAD2;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 24px;
   color: #1F1F3D;
 }
 
@@ -155,7 +158,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid #1F1F3D;
-  height: 22%;
+  height: 50%;
   width: 21%;
   margin: 12px;
 }
@@ -177,7 +180,7 @@ body {
   align-items: flex-start;
   height: 80%;
   width: 100%;
-  font-size: 12px;
+  /* font-size: 12px; */
   padding: 5px;
 }
 
@@ -193,7 +196,7 @@ body {
   /* border: 5px solid black; */
 }
 
-.image-size {
+.comment {
   height: 80%;
   /* background-color: pink; */
 }
