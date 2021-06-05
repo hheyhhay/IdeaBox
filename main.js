@@ -22,6 +22,7 @@ saveBtn.addEventListener('click', savesCard)
 //
 
 function savesCard(){
+
  currentIdea = new Idea(titleInput.value, bodyInput.value);
  console.log('title', titleInput.value);
  console.log('body', bodyInput.value);
@@ -29,6 +30,7 @@ function savesCard(){
  savedIdeas.push(currentIdea);
  console.log(savedIdeas);
 renderCard();
+clearsInput();
 };
 
 
@@ -59,7 +61,20 @@ for (var i = 0; i<savedIdeas.length; i++){
 };
 
 
+function clearsInput(){
+  if (titleInput.value && bodyInput.value){
+    console.log('title-postCLICK', titleInput.value);
+    console.log('body-postCLICK', bodyInput.value);
+    titleInput.value = null;
+    bodyInput.value = null;
+  // }  if (titleInput.value === "" || bodyInput.value === "") {
+  //
+    }
+  }
+  //when the saved button is clicked the input boxes clears.
 
+  //if the (titleInput.value & bodyInput.values) {
+// than titleInput.value & bodyInput.values = none;}
 
 
 
