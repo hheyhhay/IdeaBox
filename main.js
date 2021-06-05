@@ -21,6 +21,23 @@ saveBtn.addEventListener('click', savesCard)
 //push that into ideas array. in the function create OI.
 //
 
+saveBtn.disabled = true; //setting button state to disabled
+
+titleInput.addEventListener('change', stateHandle);
+bodyInput.addEventListener('change', stateHandle);
+
+function stateHandle() {
+  if ((titleInput.value === "") || (bodyInput.value === "")) {
+    saveBtn.disabled = true;
+    saveBtn.classList.remove('cursor-change');
+    saveBtn.classList.add('button-change');
+  } else {
+    saveBtn.disabled = false;
+    saveBtn.classList.add('cursor-change');
+    saveBtn.classList.remove('button-change');
+  }
+}
+
 function savesCard(){
  currentIdea = new Idea(titleInput.value, bodyInput.value);
  console.log('title', titleInput.value);
@@ -59,7 +76,9 @@ for (var i = 0; i<savedIdeas.length; i++){
 };
 
 
-
+// if title or body inputs are empty, save button
+// should be disabled, lighter color, and cursor
+// not a pointer when hovered over
 
 
 
