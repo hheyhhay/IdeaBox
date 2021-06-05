@@ -10,7 +10,7 @@ var wholeCard = document.querySelector('.whole-card');
 var commentCardSection = document.querySelector('.comment-card-container');
 
 
-saveBtn.addEventListener('click', savesCard)
+saveBtn.addEventListener('click', savesCard);
 
 //Create a querySelector for the saved button
 //create an eventListener
@@ -23,18 +23,21 @@ saveBtn.addEventListener('click', savesCard)
 
 saveBtn.disabled = true; //setting button state to disabled
 
-titleInput.addEventListener('change', stateHandle);
-bodyInput.addEventListener('change', stateHandle);
+titleInput.addEventListener('input', stateHandle);
+bodyInput.addEventListener('input', stateHandle);
+wholeCard.addEventListener('click')
 
 function stateHandle() {
   if ((titleInput.value === "") || (bodyInput.value === "")) {
     saveBtn.disabled = true;
     saveBtn.classList.remove('cursor-change');
     saveBtn.classList.add('button-change');
-  } else {
+    console.log('titleInput not filled', titleInput.value, titleInput)
+  } else if (titleInput.value !== ""){
     saveBtn.disabled = false;
     saveBtn.classList.add('cursor-change');
     saveBtn.classList.remove('button-change');
+    console.log('titleInput filled', titleInput.value, titleInput)
   }
 }
 
@@ -48,6 +51,7 @@ function savesCard(){
  console.log(savedIdeas);
 renderCard();
 clearsInput();
+stateHandle();
 };
 
 
