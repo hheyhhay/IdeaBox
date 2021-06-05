@@ -121,7 +121,7 @@ body {
   display: flex;
   width: 70%;
   height: 10%;
-  background-color: #5356A4;
+  background-color: #1F1F3D;
 }
 
 .magnify-img {
@@ -132,15 +132,16 @@ body {
 
 
 .save-btn {
-  background-color: #5356A4;
+  background-color: #1F1F3D;
   color: #E9E9F3;
   width: 70%;
   height: 10%;
-  border-radius: 5px;
-  border-style: none;
+  border-radius: 10px;
+  /* border-style: none; */
   font-family: 'Open Sans';
   font-weight: bold;
   font-size: 25px;
+  border-color: #5356A4;
 }
 
 .comment-card-container {
@@ -200,3 +201,11 @@ body {
   display: flex;
 
 } */
+
+.cursor-change {
+  cursor: pointer;
+}
+
+.button-change {
+  background-color: #5356A4;
+}
