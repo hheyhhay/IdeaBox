@@ -8,9 +8,13 @@ var bodyInput = document.querySelector('.js-paragraph');
 var commentText = document.querySelector('.comment-area');
 var wholeCard = document.querySelector('.whole-card');
 var commentCardSection = document.querySelector('.comment-card-container');
+
 var starImage = document.querySelector('.star');
 var deleteImage = document.querySelector('.delete');
 var cardTop = document.querySelector('.top-of-comment');
+
+// var deleteBtn = document.querySelector('.js-comment')
+
 
 saveBtn.addEventListener('click', savesCard);
 commentCardSection.addEventListener('click', fillStar);
@@ -27,7 +31,7 @@ saveBtn.disabled = true; //setting button state to disabled
 
 titleInput.addEventListener('input', enableButton);
 bodyInput.addEventListener('input', enableButton);
-// wholeCard.addEventListener('click')
+commentCardSection.addEventListener('click', deletesCard);
 
 function enableButton() {
   if ((titleInput.value === "") || (bodyInput.value === "")) {
@@ -51,15 +55,31 @@ enableButton();
 };
 
 
-//
+function deletesCard(event){
+  var selectedCard = event.target.parentNode.parentNode;
+  var ideaHTML = ""
+  if (event.target.className === "btTxt submit delete-btn") {
+    for (var i = 0; i<savedIdeas.length; i++) {
+      console.log(savedIdeas[i].id, 'array.id');
+      console.log(selectedCard.id, 'selected card id');
+       if (savedIdeas[i].id === Number(selectedCard.id)) {
+          savedIdeas.splice(i, 1);
+          renderCard();
+         }
+      }
+    }
+  }
+
+
+
 function renderCard(){
-//hTML uppdate will be here?
+
 var ideaHTML = "";
 for (var i = 0; i<savedIdeas.length; i++){
-    ideaHTML += `<div class="whole-card" id="${savedIdeas[i].id}">
+    ideaHTML += `<div class="whole-card" id= "${savedIdeas[i].id}">
     <div class="top-of-comment">
-    <input type="image" src = "images/star.svg" name="star" class = "btTxt submit star" />
-    <input type="image" src = "images/delete.svg" name"delete" class = "btTxt submit delete" />
+    <input type="image" src = "images/star.svg" name="star" class = "btTxt submit" />
+    <input type="image" src = "images/delete.svg" name= "delete" class = "btTxt submit delete-btn" />
     </div>
     <div class="comment-area">
      <h2 class="card-title">${savedIdeas[i].title}</h2>
@@ -79,14 +99,8 @@ function clearsInput(){
   if (titleInput.value && bodyInput.value){
     titleInput.value = null;
     bodyInput.value = null;
-  // }  if (titleInput.value === "" || bodyInput.value === "") {
-  //
     }
   }
-  //when the saved button is clicked the input boxes clears.
-
-  //if the (titleInput.value & bodyInput.values) {
-// than titleInput.value & bodyInput.values = none;}
 
 
 
