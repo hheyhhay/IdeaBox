@@ -8,30 +8,14 @@ var bodyInput = document.querySelector('.js-paragraph');
 var commentText = document.querySelector('.comment-area');
 var wholeCard = document.querySelector('.whole-card');
 var commentCardSection = document.querySelector('.comment-card-container');
-
-var starImage = document.querySelector('.star');
-var deleteImage = document.querySelector('.delete');
 var cardTop = document.querySelector('.top-of-comment');
 
-// var deleteBtn = document.querySelector('.js-comment')
 
-
+saveBtn.disabled = true;
 saveBtn.addEventListener('click', savesCard);
-commentCardSection.addEventListener('click', fillStar);
-//Create a querySelector for the saved button
-//create an eventListener
-//querySelect als the idea title and the idea body field - specifically the .value
-//The event listner on click on the save button, should populate a new idea card w/
-//the value of idea & body. - the eventHandler
-// To store into the DM - we will need to create a new Object instance,
-//push that into ideas array. in the function create OI.
-//
-
-saveBtn.disabled = true; //setting button state to disabled
-
 titleInput.addEventListener('input', enableButton);
 bodyInput.addEventListener('input', enableButton);
-commentCardSection.addEventListener('click', deletesCard);
+commentCardSection.addEventListener('click', modifiesCard);
 
 function enableButton() {
   if ((titleInput.value === "") || (bodyInput.value === "")) {
@@ -46,40 +30,51 @@ function enableButton() {
 }
 
 function savesCard(){
-
  currentIdea = new Idea(titleInput.value, bodyInput.value);
  savedIdeas.push(currentIdea);
-renderCard();
-clearsInput();
-enableButton();
+ renderCard();
+ clearsInput();
+ enableButton();
 };
 
 
-function deletesCard(event){
+function modifiesCard(event){
   var selectedCard = event.target.parentNode.parentNode;
   var ideaHTML = ""
   if (event.target.className === "btTxt submit delete-btn") {
     for (var i = 0; i<savedIdeas.length; i++) {
-      console.log(savedIdeas[i].id, 'array.id');
-      console.log(selectedCard.id, 'selected card id');
        if (savedIdeas[i].id === Number(selectedCard.id)) {
           savedIdeas.splice(i, 1);
           renderCard();
          }
       }
-    }
+    } else if (event.target.className === "btTxt submit star") {
+        for (var i = 0; i < savedIdeas.length; i++) {
+          if (savedIdeas[i].id === Number(selectedCard.id)) {
+            if (savedIdeas[i].star === false) {
+              savedIdeas[i].star = true;
+              selectedCard = savedIdeas[i];
+            favoriteStar(selectedCard)
+            } else {
+              savedIdeas[i].star = false;
+              selectedCard = savedIdeas[i];
+            favoriteStar(selectedCard)
+            }
+          }
+        }
+      }
   }
 
 
 
 function renderCard(){
-
 var ideaHTML = "";
 for (var i = 0; i<savedIdeas.length; i++){
     ideaHTML += `<div class="whole-card" id= "${savedIdeas[i].id}">
     <div class="top-of-comment">
-    <input type="image" src = "images/star.svg" name="star" class = "btTxt submit" />
+    <input type="image" src = "${savedIdeas[i].starSrc}" name="star" class = "btTxt submit star" />
     <input type="image" src = "images/delete.svg" name= "delete" class = "btTxt submit delete-btn" />
+
     </div>
     <div class="comment-area">
      <h2 class="card-title">${savedIdeas[i].title}</h2>
@@ -104,46 +99,17 @@ function clearsInput(){
 
 
 
-
-function fillStar(event) {
-  var favoritedCard = event.target.parentNode.parentNode;
-
-  if (event.target.className === "btTxt submit star") {
-
-    for (var i = 0; i < savedIdeas.length; i++) {
-      if (savedIdeas[i].id === Number(favoritedCard.id)) {
-        console.log(savedIdeas[i].star)
-
-        if (savedIdeas[i].star === false) {
-          savedIdeas[i].star = true;
-          console.log(savedIdeas[i].star)
-          starImage.classList.add('hidden')
-          favoriteStar();
-        } else {
-          savedIdeas[i].star = false;
-          favoriteStar();
-        }
-
-      }
-    }
+function favoriteStar(selectedCard) {
+  if (selectedCard.star){
+     selectedCard.starSrc = 'images/star-active.svg';
+     renderCard();
+  } else if (!selectedCard.star){
+    selectedCard.starSrc = 'images/star.svg';
+    renderCard();
   }
-}
+};
 
-function favoriteStar() {
-  console.log(this)
-  if (this.star === true) {
-    starImage.classList.add('hidden');
-    deleteImage.classList.add('hidden');
-    cardTop.innerHTML += `<input type="image" src = "images/star-active.svg" name="star" class = "btTxt submit star" />
-    <input type="image" src = "images/delete.svg" name"delete" class = "btTxt submit delete"/>`
-  } else if (this.star === false) {
-      starImage.classList.remove('hidden');
-      deleteImage.classList.remove('hidden');
-      cardTop.innerHTML += `<input type="image" src = "images/star.svg" name="star" class = "btTxt submit star" />
-      <input type="image" src = "images/delete.svg" name"delete" class = "btTxt submit"/>`
-    }
-}
-}
+
 
 
 

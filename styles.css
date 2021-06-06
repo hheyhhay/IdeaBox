@@ -167,6 +167,8 @@ body {
 .top-of-comment {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
+  align-items: stretch;
   background-color: #1F1F3D;
   color: white;
   height: 10%;
