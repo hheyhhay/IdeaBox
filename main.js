@@ -13,7 +13,7 @@ var deleteImage = document.querySelector('.delete');
 var cardTop = document.querySelector('.top-of-comment');
 
 saveBtn.addEventListener('click', savesCard);
-starImage.addEventListener('click', favoriteCard);
+commentCardSection.addEventListener('click', fillStar);
 //Create a querySelector for the saved button
 //create an eventListener
 //querySelect als the idea title and the idea body field - specifically the .value
@@ -56,10 +56,10 @@ function renderCard(){
 //hTML uppdate will be here?
 var ideaHTML = "";
 for (var i = 0; i<savedIdeas.length; i++){
-    ideaHTML += `<div class="whole-card">
-    <div class="top-of-comment" data-id="${savedIdeas[i].id}">
-    <input type="image" src = "images/star.svg" name="star" class = "btTxt submit" />
-    <input type="image" src = "images/delete.svg" name"delete" class = "btTxt submit" />
+    ideaHTML += `<div class="whole-card" id="${savedIdeas[i].id}">
+    <div class="top-of-comment">
+    <input type="image" src = "images/star.svg" name="star" class = "btTxt submit star" />
+    <input type="image" src = "images/delete.svg" name"delete" class = "btTxt submit delete" />
     </div>
     <div class="comment-area">
      <h2 class="card-title">${savedIdeas[i].title}</h2>
@@ -88,34 +88,48 @@ function clearsInput(){
   //if the (titleInput.value & bodyInput.values) {
 // than titleInput.value & bodyInput.values = none;}
 
-function favoriteStar() {
-  starImage.classList.add('hidden');
-  deleteImage.classList.add('hidden');
-  cardTop.innerHTML += `<input type="image" src = "images/star-active.svg" name="star" class = "btTxt submit star" />
-  <input type="image" src = "images/delete.svg" name"delete" class = "btTxt submit"/>`
-}
 
 
-function favoriteCard() {
-  var favoriteCard = event.target.closest(".top-of-comment")
-  if (favoriteCard) {
-    for (i = 0; i < savedIdeas.length; i++) {
-      if (savedIdeas[i].id === Number(favoriteCard.dataset.id)) {
-        favoriteStar();
+
+function fillStar(event) {
+  var favoritedCard = event.target.parentNode.parentNode;
+
+  if (event.target.className === "btTxt submit star") {
+
+    for (var i = 0; i < savedIdeas.length; i++) {
+      if (savedIdeas[i].id === Number(favoritedCard.id)) {
+        console.log(savedIdeas[i].star)
+
+        if (savedIdeas[i].star === false) {
+          savedIdeas[i].star = true;
+          console.log(savedIdeas[i].star)
+          starImage.classList.add('hidden')
+          favoriteStar();
+        } else {
+          savedIdeas[i].star = false;
+          favoriteStar();
+        }
+
       }
     }
   }
 }
 
-function favorite() {
-  if (this.star = true)
+function favoriteStar() {
+  console.log(this)
+  if (this.star === true) {
+    starImage.classList.add('hidden');
+    deleteImage.classList.add('hidden');
+    cardTop.innerHTML += `<input type="image" src = "images/star-active.svg" name="star" class = "btTxt submit star" />
+    <input type="image" src = "images/delete.svg" name"delete" class = "btTxt submit delete"/>`
+  } else if (this.star === false) {
+      starImage.classList.remove('hidden');
+      deleteImage.classList.remove('hidden');
+      cardTop.innerHTML += `<input type="image" src = "images/star.svg" name="star" class = "btTxt submit star" />
+      <input type="image" src = "images/delete.svg" name"delete" class = "btTxt submit"/>`
+    }
 }
-
-//
-
-
-
-
+}
 
 
 
