@@ -8,10 +8,16 @@ var bodyInput = document.querySelector('.js-paragraph');
 var commentText = document.querySelector('.comment-area');
 var wholeCard = document.querySelector('.whole-card');
 var commentCardSection = document.querySelector('.comment-card-container');
+
+var starImage = document.querySelector('.star');
+var deleteImage = document.querySelector('.delete');
+var cardTop = document.querySelector('.top-of-comment');
+
 // var deleteBtn = document.querySelector('.js-comment')
 
-saveBtn.addEventListener('click', savesCard);
 
+saveBtn.addEventListener('click', savesCard);
+commentCardSection.addEventListener('click', fillStar);
 //Create a querySelector for the saved button
 //create an eventListener
 //querySelect als the idea title and the idea body field - specifically the .value
@@ -99,13 +105,45 @@ function clearsInput(){
 
 
 
+function fillStar(event) {
+  var favoritedCard = event.target.parentNode.parentNode;
 
+  if (event.target.className === "btTxt submit star") {
 
+    for (var i = 0; i < savedIdeas.length; i++) {
+      if (savedIdeas[i].id === Number(favoritedCard.id)) {
+        console.log(savedIdeas[i].star)
 
+        if (savedIdeas[i].star === false) {
+          savedIdeas[i].star = true;
+          console.log(savedIdeas[i].star)
+          starImage.classList.add('hidden')
+          favoriteStar();
+        } else {
+          savedIdeas[i].star = false;
+          favoriteStar();
+        }
 
+      }
+    }
+  }
+}
 
-
-
+function favoriteStar() {
+  console.log(this)
+  if (this.star === true) {
+    starImage.classList.add('hidden');
+    deleteImage.classList.add('hidden');
+    cardTop.innerHTML += `<input type="image" src = "images/star-active.svg" name="star" class = "btTxt submit star" />
+    <input type="image" src = "images/delete.svg" name"delete" class = "btTxt submit delete"/>`
+  } else if (this.star === false) {
+      starImage.classList.remove('hidden');
+      deleteImage.classList.remove('hidden');
+      cardTop.innerHTML += `<input type="image" src = "images/star.svg" name="star" class = "btTxt submit star" />
+      <input type="image" src = "images/delete.svg" name"delete" class = "btTxt submit"/>`
+    }
+}
+}
 
 
 
