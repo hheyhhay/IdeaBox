@@ -35,7 +35,9 @@ function savesCard(){
  renderCard();
  clearsInput();
  enableButton();
+ saveToStorage();
 };
+
 
 
 function modifiesCard(event){
@@ -63,6 +65,7 @@ function modifiesCard(event){
           }
         }
       }
+
   }
 
 
@@ -108,6 +111,7 @@ function favoriteStar(selectedCard) {
     renderCard();
   }
 };
+
 
 
 
