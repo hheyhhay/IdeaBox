@@ -74,7 +74,6 @@ for (var i = 0; i<savedIdeas.length; i++){
     <div class="top-of-comment">
     <input type="image" src = "${savedIdeas[i].starSrc}" name="star" class = "btTxt submit star" />
     <input type="image" src = "images/delete.svg" name= "delete" class = "btTxt submit delete-btn" />
-
     </div>
     <div class="comment-area">
      <h2 class="card-title">${savedIdeas[i].title}</h2>
