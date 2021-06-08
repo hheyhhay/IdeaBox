@@ -6,12 +6,27 @@ class Idea{
     this.star = false;
     this.starSrc = 'images/star.svg';
   }
-  saveToStorage(){
- // should only have one job which is to save the instance to storage
-  }
-  deleteFromStorage(){
 
+  // saveToStorage() {
+  //   for (var i = 0; i<savedIdeas.length; i++) {
+  //     currentIdea = savedIdeas[i];
+  //     var strIdea = JSON.stringify(currentIdea);
+  //     // var strIdea = JSON.stringify(savedIdeas);
+  //     // var savedIdea = savedIdeas[i].id;
+  //     localStorage.setItem('savedIdea', strIdea);
+  // //have it show up saved ideas
+  // }
+
+  saveToStorage() {
+    var strIdea = JSON.stringify(savedIdeas);
+    localStorage.setItem('savedIdea', strIdea);
   }
+
+
+  // deleteFromStorage(){
+  //   var localStorage.removeItem
+  // }
+
   updateIdea(changes){
     if (changes === 'delete') {
       console.log('will delete this');
