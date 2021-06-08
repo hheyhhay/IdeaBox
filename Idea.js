@@ -24,15 +24,8 @@ console.log('will delete');
 
   // need to iterate through the savedIdeas array to find the ID that has been deleted
   // will need to delete the instance from localStorage
-  for (var i = 0; i<savedIdeas.length; i++){
     //how to set up a conditional saying if this is not in the array, remove from storage
     //if
-    console.log('inside Class', deleteMessage)
-    console.log('i should log something')
-    currentIdea = savedIdeas[i];
-    console.log('currentIdea', currentIdea)
-    console.log(savedIdeas[i].id);
-    console.log(localStorage[savedIdeas[i].id]);
   }
   }
   updateIdea(changes){

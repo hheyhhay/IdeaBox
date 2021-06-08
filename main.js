@@ -17,36 +17,7 @@ saveBtn.addEventListener('click', savesCard);
 titleInput.addEventListener('input', enableButton);
 bodyInput.addEventListener('input', enableButton);
 commentCardSection.addEventListener('click', modifiesCard);
-//
-// function loadLocalStorage(){
-  // console.log('page load');
-  // console.log(localStorage, 'Local storage from page load')
-  // console.log(Object.values(localStorage));
-  // savedIdeasValues = Object.values(localStorage);
-  // console.log(savedIdeas[0]);
-  // var positionOne = savedIdeasValues[0];
-  // // var parsedOne = JSON.parse(positionOne)
-  // console.log(parsedOne);
-  // // savedIdeas.push(parsedOne);
-  // renderCard();
-//   // for (var i = 0; savedIdeas.length; i++){
-//   // // var parsedIdea = JSON.parse(savedIdeas[i]);
-//   //   console.log('parsed idea', 'parsedIdea');
-//   // }
-//   // localStorage needs to populate the savedPosters array
 
-//
-//   var savedIdeasValues = localStorage.getItem('savedIdea');
-//   savedIdeaVales = JSON.parse(savedIdeasValues);
-//   savedIdeas = savedIdeasValues;
-//   console.log('savedIdeas page load', savedIdeasValues)
-//   if (savedIdeas) {
-//       renderCard();
-//   };
-//
-//
-// };
-//
 
 function loadLocalStorage()
 {
@@ -80,7 +51,6 @@ function savesCard(){
  clearsInput();
  enableButton();
  currentIdea.saveToStorage();
- // console.log('from main.js', parsedIdeasArray)
 };
 
 
@@ -106,7 +76,7 @@ function modifiesCard(event){
               savedIdeas[i].star = true;
               selectedCard = savedIdeas[i];
             favoriteStar(selectedCard)
-            currentIdea.saveToStorage();
+            // currentIdea.saveToStorage();
             } else {
               savedIdeas[i].star = false;
               selectedCard = savedIdeas[i];
@@ -115,7 +85,6 @@ function modifiesCard(event){
           }
         }
       }
-
   }
 
 
