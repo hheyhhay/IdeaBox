@@ -20,8 +20,7 @@ bodyInput.addEventListener('input', enableButton);
 commentCardSection.addEventListener('click', modifiesCard);
 
 
-function loadLocalStorage()
-{
+function loadLocalStorage() {
   var savedIdeasValue = [];
   var parsedIdea;
   savedIdeasValues = Object.values(localStorage);
@@ -54,24 +53,19 @@ function savesCard(){
  currentIdea.saveToStorage();
 };
 
-  renderCard();
-  clearsInput();
-  enableButton();
-  currentIdea.saveToStorage();
-}
 
-function loadLocalStorage() {
-  // for (var i = 0; savedIdeas.length; i++);
-  // var savedIdeasValues = Object.values(localStorage);
-  // var savedIdeasValues = localStorage.getItem('savedIdea')
-  // var parsedObject = JSON.parse(savedIdeasValues);
-  // parsedObject = savedIdeas
-
-  var savedIdeasValues = localStorage.getItem('savedIdea');
-  var parsedObject = JSON.parse(savedIdeasValues);
-  savedIdeas.concat(parsedObject);
-  renderCard();
-}
+// function loadLocalStorage() {
+//   // for (var i = 0; savedIdeas.length; i++);
+//   // var savedIdeasValues = Object.values(localStorage);
+//   // var savedIdeasValues = localStorage.getItem('savedIdea')
+//   // var parsedObject = JSON.parse(savedIdeasValues);
+//   // parsedObject = savedIdeas
+//
+//   var savedIdeasValues = localStorage.getItem('savedIdea');
+//   var parsedObject = JSON.parse(savedIdeasValues);
+//   savedIdeas.concat(parsedObject);
+//   renderCard();
+// }
 // function showSavedCards() {
 //   var retrievedIdea = localStorage.getItem(savedIdea);
 //   var parsedObject = JSON.parse(retrievedIdea);
@@ -82,7 +76,7 @@ function loadLocalStorage() {
 //   renderCard();
 // }
 
-window.onload = loadLocalStorage();
+
 
 // saveToStorage() {
 //   var stringifiedCard = JSON.stringify(savedIdeas)
@@ -95,12 +89,14 @@ function modifiesCard(event){
   if (event.target.className === "btTxt submit delete-btn") {
     for (var i = 0; i<savedIdeas.length; i++) {
        if (savedIdeas[i].id === Number(selectedCard.id)) {
-          // var deleteMessage = savedIdeas[i];
+          var deleteIdea = savedIdeas[i];
           // Should we make it a new instance, i think not? not sure though.
           // console.log('deletedMessage', deleteMessage)
           savedIdeas.splice(i, 1);
           renderCard();
-          currentIdea.deleteFromStorage();
+          deleteIdea.deleteFromStorage();
+
+          // currentIdea.deleteFromStorage();
          }
       }
     } else if (event.target.className === "btTxt submit star") {
@@ -156,9 +152,11 @@ function favoriteStar(selectedCard) {
   if (selectedCard.star){
      selectedCard.starSrc = 'images/star-active.svg';
      renderCard();
+     selectedCard.updateIdea();
   } else if (!selectedCard.star){
     selectedCard.starSrc = 'images/star.svg';
     renderCard();
+    selectedCard.updateIdea();
   }
 };
 

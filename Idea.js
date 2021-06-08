@@ -1,5 +1,5 @@
-class Idea{
-  constructor(title, body){
+class Idea {
+  constructor(title, body) {
     this.id=Date.now();
     this.title  = title;
     this.body = body;
@@ -16,30 +16,41 @@ class Idea{
 }
 
 
-
-  deleteFromStorage(){
-
-console.log('will delete');
-
-
-  // need to iterate through the savedIdeas array to find the ID that has been deleted
-  // will need to delete the instance from localStorage
-    //how to set up a conditional saying if this is not in the array, remove from storage
-    //if
+  deleteFromStorage() {
+    var strKey;
+    strKey = JSON.stringify(deleteIdea.id)
+    localStorage.removeItem(strKey);
   }
+
+  updateIdea() {
+    var strKey;
+    var strValue;
+    strKey = JSON.stringify(selectedCard.id)
+    strValue = JSON.stringify(selectedCard)
+    localStorage.setItem(strKey, strValue);
   }
+//
+// console.log('will delete');
+//
+//
+//   // need to iterate through the savedIdeas array to find the ID that has been deleted
+//   // will need to delete the instance from localStorage
+//     //how to set up a conditional saying if this is not in the array, remove from storage
+//     //if
+//   }
+//   }
 
 
   // deleteFromStorage(){
   //   var localStorage.removeItem
   // }
 
-  updateIdea(changes){
-    if (changes === 'delete') {
-      console.log('will delete this');
-    }
-// should be able to update the idea’s title, body, or starred state
+//   updateIdea(changes){
+//     if (changes === 'delete') {
+//       console.log('will delete this');
+//     }
+// // should be able to update the idea’s title, body, or starred state
+//
+//     console.log('should we use this?')
 
-    console.log('should we use this?')
-  }
 }
