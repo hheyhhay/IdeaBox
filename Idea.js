@@ -15,25 +15,17 @@ class Idea{
   }
 }
 
-
-
   deleteFromStorage(){
+    var strKey;
+    strKey = JSON.stringify(deleteIdea.id)
+    localStorage.removeItem(strKey);
 
-console.log('will delete');
-
-
-  // need to iterate through the savedIdeas array to find the ID that has been deleted
-  // will need to delete the instance from localStorage
-    //how to set up a conditional saying if this is not in the array, remove from storage
-    //if
   }
-  }
-  updateIdea(changes){
-    if (changes === 'delete') {
-      console.log('will delete this');
-    }
-// should be able to update the idea’s title, body, or starred state
-
-    console.log('should we use this?')
+  updateIdea(){
+    var strKey;
+    var strValue;
+    strKey = JSON.stringify(selectedCard.id)
+    strValue = JSON.stringify(selectedCard)
+    localStorage.setItem(strKey, strValue);
   }
 }

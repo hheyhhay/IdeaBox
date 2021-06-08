@@ -1,6 +1,7 @@
 var savedIdeas=[];
 var currentIdea = "";
 var deletedIdea = "";
+var selectedCard = "";
 
 
 var saveBtn = document.querySelector(".save-btn");
@@ -19,8 +20,7 @@ bodyInput.addEventListener('input', enableButton);
 commentCardSection.addEventListener('click', modifiesCard);
 
 
-function loadLocalStorage()
-{
+function loadLocalStorage() {
   var savedIdeasValue = [];
   var parsedIdea;
   savedIdeasValues = Object.values(localStorage);
@@ -56,17 +56,18 @@ function savesCard(){
 
 
 function modifiesCard(event){
-  var selectedCard = event.target.parentNode.parentNode;
+  selectedCard = event.target.parentNode.parentNode;
   var ideaHTML = ""
+
   if (event.target.className === "btTxt submit delete-btn") {
     for (var i = 0; i<savedIdeas.length; i++) {
        if (savedIdeas[i].id === Number(selectedCard.id)) {
-          // var deleteMessage = savedIdeas[i];
-          // Should we make it a new instance, i think not? not sure though.
-          // console.log('deletedMessage', deleteMessage)
+          deleteIdea = savedIdeas[i];
+         console.log('deleteIdea', deleteIdea)
+         console.log('current Idea', currentIdea)
           savedIdeas.splice(i, 1);
           renderCard();
-          currentIdea.deleteFromStorage();
+          deleteIdea.deleteFromStorage();
          }
       }
     } else if (event.target.className === "btTxt submit star") {
@@ -76,7 +77,7 @@ function modifiesCard(event){
               savedIdeas[i].star = true;
               selectedCard = savedIdeas[i];
             favoriteStar(selectedCard)
-            // currentIdea.saveToStorage();
+            console.log(selectedCard, 'inside modifiesCard')
             } else {
               savedIdeas[i].star = false;
               selectedCard = savedIdeas[i];
@@ -86,7 +87,6 @@ function modifiesCard(event){
         }
       }
   }
-
 
 
 function renderCard(){
@@ -110,7 +110,6 @@ for (var i = 0; i<savedIdeas.length; i++){
   commentCardSection.innerHTML = ideaHTML;
 };
 
-
 function clearsInput(){
   if (titleInput.value && bodyInput.value){
     titleInput.value = null;
@@ -119,14 +118,15 @@ function clearsInput(){
   }
 
 
-
 function favoriteStar(selectedCard) {
   if (selectedCard.star){
      selectedCard.starSrc = 'images/star-active.svg';
      renderCard();
+     selectedCard.updateIdea();
   } else if (!selectedCard.star){
     selectedCard.starSrc = 'images/star.svg';
     renderCard();
+    selectedCard.updateIdea();
   }
 };
 
