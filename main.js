@@ -1,5 +1,6 @@
 var savedIdeas=[];
 var currentIdea = "";
+var deletedIdea = "";
 
 
 var saveBtn = document.querySelector(".save-btn");
@@ -16,6 +17,20 @@ saveBtn.addEventListener('click', savesCard);
 titleInput.addEventListener('input', enableButton);
 bodyInput.addEventListener('input', enableButton);
 commentCardSection.addEventListener('click', modifiesCard);
+
+
+function loadLocalStorage()
+{
+  var savedIdeasValue = [];
+  var parsedIdea;
+  savedIdeasValues = Object.values(localStorage);
+  for (var i = 0; i<savedIdeasValues.length; i++){
+    parsedIdea = JSON.parse(savedIdeasValues[i]);
+    savedIdeas.push(parsedIdea);
+  } renderCard();
+}
+
+window.onload = loadLocalStorage();
 
 function enableButton() {
   if ((titleInput.value === "") || (bodyInput.value === "")) {
@@ -35,7 +50,7 @@ function savesCard(){
  renderCard();
  clearsInput();
  enableButton();
- saveToStorage();
+ currentIdea.saveToStorage();
 };
 
 
@@ -46,8 +61,12 @@ function modifiesCard(event){
   if (event.target.className === "btTxt submit delete-btn") {
     for (var i = 0; i<savedIdeas.length; i++) {
        if (savedIdeas[i].id === Number(selectedCard.id)) {
+          // var deleteMessage = savedIdeas[i];
+          // Should we make it a new instance, i think not? not sure though.
+          // console.log('deletedMessage', deleteMessage)
           savedIdeas.splice(i, 1);
           renderCard();
+          currentIdea.deleteFromStorage();
          }
       }
     } else if (event.target.className === "btTxt submit star") {
@@ -57,6 +76,7 @@ function modifiesCard(event){
               savedIdeas[i].star = true;
               selectedCard = savedIdeas[i];
             favoriteStar(selectedCard)
+            // currentIdea.saveToStorage();
             } else {
               savedIdeas[i].star = false;
               selectedCard = savedIdeas[i];
@@ -65,7 +85,6 @@ function modifiesCard(event){
           }
         }
       }
-
   }
 
 
