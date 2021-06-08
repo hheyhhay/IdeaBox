@@ -6,20 +6,27 @@ class Idea{
     this.star = false;
     this.starSrc = 'images/star.svg';
   }
+  saveToStorage(){
+    for (var i = 0; i<savedIdeas.length; i++){
+      currentIdea = savedIdeas[i];
+      var strIdea = JSON.stringify(currentIdea);
+      var savedIdea = savedIdeas[i].id;
+      localStorage.setItem(savedIdea, strIdea)
+  }
+}
 
-  // saveToStorage() {
-  //   for (var i = 0; i<savedIdeas.length; i++) {
-  //     currentIdea = savedIdeas[i];
-  //     var strIdea = JSON.stringify(currentIdea);
-  //     // var strIdea = JSON.stringify(savedIdeas);
-  //     // var savedIdea = savedIdeas[i].id;
-  //     localStorage.setItem('savedIdea', strIdea);
-  // //have it show up saved ideas
-  // }
 
-  saveToStorage() {
-    var strIdea = JSON.stringify(savedIdeas);
-    localStorage.setItem('savedIdea', strIdea);
+
+  deleteFromStorage(){
+
+console.log('will delete');
+
+
+  // need to iterate through the savedIdeas array to find the ID that has been deleted
+  // will need to delete the instance from localStorage
+    //how to set up a conditional saying if this is not in the array, remove from storage
+    //if
+  }
   }
 
 
