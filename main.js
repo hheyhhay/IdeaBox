@@ -13,7 +13,7 @@ var wholeCard = document.querySelector('.whole-card');
 var commentCardSection = document.querySelector('.comment-card-container');
 var cardTop = document.querySelector('.top-of-comment');
 
-
+//
 
 bodyInput.addEventListener('input', enableButton);
 commentCardSection.addEventListener('click', function(){
@@ -48,7 +48,6 @@ function enableButton() {
   if ((titleInput.value === "") || (bodyInput.value === "")) {
     removeClass(saveBtn, 'cursor-change');
     addClass(saveBtn, 'button-change')
-    saveBtn.disabled = true;
   } else if (titleInput.value !=="" && bodyInput.value !=="") {
     saveBtn.disabled = false;
     addClass(saveBtn, 'cursor-change')
@@ -57,7 +56,7 @@ function enableButton() {
 }
 
 function savesCard(){
-currentIdea = {title: titleInput.value, body: bodyInput.value}
+  currentIdea = {title: titleInput.value, body: bodyInput.value}
   currentIdea = new Idea(currentIdea)
  savedIdeas.push(currentIdea);
  renderCard();
@@ -76,10 +75,10 @@ function clearsInput(){
 
 function modifiesCard(event){
   selectedCard = event.target.parentNode.parentNode;
-  if (event.target.className === "delete-btn") {
+  if (event.target.className === "btTxt submit delete-btn") {
 
       deleteCard();
-    } else if (event.target.className === "star") {
+    } else if (event.target.className === "btTxt submit star") {
       starsCard();
     }
 };
