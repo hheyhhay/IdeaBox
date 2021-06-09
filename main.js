@@ -30,7 +30,7 @@ function loadLocalStorage() {
   var savedIdeasValue = [];
   var parsedIdea;
   savedIdeasValues = Object.values(localStorage);
-  for (var i = 0; i<savedIdeasValues.length; i++){
+  for (var i = 0; i < savedIdeasValues.length; i++){
     parsedIdea = JSON.parse(savedIdeasValues[i]);
     var currentIdea = new Idea(parsedIdea)
     savedIdeas.push(currentIdea)
@@ -158,7 +158,7 @@ function clearCard(){
 
 function showStarred(){
   var favoritedCards = [];
-  for (var i =0; i<savedIdeas.length; i++){
+  for (var i =0; i< savedIdeas.length; i++){
     if (savedIdeas[i]['star']){
       clearCard();
       favoritedCards.push(savedIdeas[i])
