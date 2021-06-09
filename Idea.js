@@ -16,16 +16,18 @@ class Idea {
 }
 
 
-  deleteFromStorage() {
+  deleteFromStorage(idToDelete) {
     var strKey;
-    strKey = JSON.stringify(deleteIdea.id)
+    // strKey = JSON.stringify(deleteIdea.id)
+    strKey = JSON.stringify(idToDelete)
+    console.log(strKey)
     localStorage.removeItem(strKey);
   }
 
-  updateIdea() {
+  updateIdea(favorite) {
     var strKey;
     var strValue;
-    strKey = JSON.stringify(selectedCard.id)
+    strKey = JSON.stringify(favorite)
     strValue = JSON.stringify(selectedCard)
     localStorage.setItem(strKey, strValue);
   }

@@ -17,7 +17,9 @@ saveBtn.disabled = true;
 saveBtn.addEventListener('click', savesCard);
 titleInput.addEventListener('input', enableButton);
 bodyInput.addEventListener('input', enableButton);
-commentCardSection.addEventListener('click', modifiesCard);
+commentCardSection.addEventListener('click', function() {
+  modifiesCard(event)
+});
 
 
 function loadLocalStorage() {
@@ -25,16 +27,18 @@ function loadLocalStorage() {
   var parsedIdea;
   savedIdeasValues = Object.values(localStorage);
   for (var i = 0; i<savedIdeasValues.length; i++){
+    // localStorage.getItem(savedIdeasValues[i]);
     parsedIdea = JSON.parse(savedIdeasValues[i]);
     savedIdeas.push(parsedIdea);
   } renderCard();
 }
 
-window.onload = loadLocalStorage();
+// window.onload = loadLocalStorage();
+window.addEventListener('load', loadLocalStorage)
+
 
 function enableButton() {
-  if ((titleInput.value === "") || (bodyInput.value === "")) {
-    saveBtn.disabled = true;
+  if (!titleInput.value || !bodyInput.value) {
     saveBtn.classList.remove('cursor-change');
     saveBtn.classList.add('button-change');
   } else if (titleInput.value !== ""){
@@ -85,18 +89,15 @@ function savesCard(){
 
 function modifiesCard(event){
   var selectedCard = event.target.parentNode.parentNode;
-  var ideaHTML = ""
+  // var ideaHTML = ""
   if (event.target.className === "btTxt submit delete-btn") {
     for (var i = 0; i<savedIdeas.length; i++) {
        if (savedIdeas[i].id === Number(selectedCard.id)) {
           var deleteIdea = savedIdeas[i];
-          // Should we make it a new instance, i think not? not sure though.
-          // console.log('deletedMessage', deleteMessage)
+          var currentIdea = new Idea(deleteIdea.title, deleteIdea.body);
           savedIdeas.splice(i, 1);
           renderCard();
-          deleteIdea.deleteFromStorage();
-
-          // currentIdea.deleteFromStorage();
+          currentIdea.deleteFromStorage(deleteIdea.id);
          }
       }
     } else if (event.target.className === "btTxt submit star") {
@@ -105,18 +106,16 @@ function modifiesCard(event){
             if (savedIdeas[i].star === false) {
               savedIdeas[i].star = true;
               selectedCard = savedIdeas[i];
-            favoriteStar(selectedCard)
-            // currentIdea.saveToStorage();
+              favoriteStar(selectedCard)
             } else {
               savedIdeas[i].star = false;
               selectedCard = savedIdeas[i];
-            favoriteStar(selectedCard)
-            }
+              favoriteStar(selectedCard)
+              }
           }
         }
       }
   }
-
 
 function renderCard(){
 var ideaHTML = "";
@@ -150,9 +149,9 @@ function clearsInput(){
 
 function favoriteStar(selectedCard) {
   if (selectedCard.star){
-     selectedCard.starSrc = 'images/star-active.svg';
-     renderCard();
-     selectedCard.updateIdea();
+    selectedCard.starSrc = 'images/star-active.svg';
+    renderCard();
+    selectedCard.updateIdea();
   } else if (!selectedCard.star){
     selectedCard.starSrc = 'images/star.svg';
     renderCard();
