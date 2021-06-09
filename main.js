@@ -76,10 +76,10 @@ function clearsInput(){
 
 function modifiesCard(event){
   selectedCard = event.target.parentNode.parentNode;
-  if (event.target.className === "btTxt submit delete-btn") {
+  if (event.target.className === "delete-btn") {
 
       deleteCard();
-    } else if (event.target.className === "btTxt submit star") {
+    } else if (event.target.className === "star") {
       starsCard();
     }
 };
