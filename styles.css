@@ -3,6 +3,7 @@ html {
   width: 100%;
   background-color: #EAEAF4;
 }
+
 body {
   display: flex;
   align-items: stretch;
@@ -26,24 +27,24 @@ body {
   background-color: #1F1F3D;
   font-weight: bold;
   color: #E9E9F3;
-
 }
-.filter{
+
+.filter {
   border-top: 2px solid #353567;
   border-bottom:  2px solid #353567;
   padding-bottom: 40px;
   padding: 20px;
-
+  font-size: 15px;
 }
 
 .show-star-btn {
   background-color: #5356A4;
   font-family: 'Open Sans';
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: #E9E9F3;
-  width: 90%;
-  height:50%;
+  width: 65%;
+  height: 35%;
   border-style: none;
 }
 
@@ -55,8 +56,6 @@ body {
   height: 100%;
 }
 
-
-
 .form {
   display: flex;
   flex-direction: column;
@@ -64,6 +63,7 @@ body {
   justify-content: space-evenly;
   width: 100%;
   min-height: 70%;
+  max-height: 70%;
   background-color: #A9AAD2;
   font-weight: bold;
   font-size: 24px;
@@ -83,11 +83,7 @@ body {
   justify-content: center;
   width: 70%;
   height: 25%
-  /* border: 2px solid white;
-} */
 }
-
-
 
 .form-search{
   display: flex;
@@ -95,17 +91,13 @@ body {
   align-items: stretch;
   width: 70%;
   height: 25%;
-  /* border: 4px solid pink; */
 }
-
 
 .title {
   display: flex;
   justify-content: center;
   flex-direction: column;
   height: 100%;
-  /* border: 2px solid black; */
-
 }
 
 .title-heading{
@@ -127,12 +119,10 @@ body {
   background-color: #1F1F3D;
 }
 
-.magnify-img {
-  padding: 7px;
-  width: 10%;
+.magnify-btn {
+  padding:7px;
+  width:10%;
 }
-
-
 
 .save-btn {
   background-color: #1F1F3D;
@@ -140,7 +130,6 @@ body {
   width: 70%;
   height: 10%;
   border-radius: 10px;
-  /* border-style: none; */
   font-family: 'Open Sans';
   font-weight: bold;
   font-size: 25px;
@@ -150,7 +139,7 @@ body {
 .comment-card-container {
   display: flex;
   flex-wrap: wrap;
-
+  max-height: 60%
 }
 
 .whole-card {
@@ -163,7 +152,6 @@ body {
   margin: 12px;
 }
 
-
 .top-of-comment {
   display: flex;
   justify-content: space-between;
@@ -173,7 +161,6 @@ body {
   color: white;
   height: 10%;
   width: 100%;
-  /* border: 10px solid red; */
 }
 
 .comment-area {
@@ -182,7 +169,6 @@ body {
   align-items: flex-start;
   height: 80%;
   width: 100%;
-  /* font-size: 12px; */
   padding: 5px;
 }
 
@@ -195,17 +181,11 @@ body {
   width: 100%;
   font-size: small;
   color: white;
-  /* border: 5px solid black; */
 }
 
 .comment {
   height: 80%;
-  /* background-color: pink; */
 }
-/* .comment-text {
-  display: flex;
-
-} */
 
 .cursor-change {
   cursor: pointer;
