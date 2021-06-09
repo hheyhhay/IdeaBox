@@ -85,8 +85,6 @@ body {
   height: 25%
 }
 
-
-
 .form-search{
   display: flex;
   flex-direction: column;
@@ -95,13 +93,11 @@ body {
   height: 25%;
 }
 
-
 .title {
   display: flex;
   justify-content: center;
   flex-direction: column;
   height: 100%;
-
 }
 
 .title-heading{
@@ -123,12 +119,10 @@ body {
   background-color: #1F1F3D;
 }
 
-.magnify-img {
-  padding: 7px;
-  width: 10%;
-}
-
-
+/* .magnify-img {
+  padding: 20px;
+  width: 25%;
+} */
 
 .save-btn {
   background-color: #1F1F3D;
@@ -136,7 +130,6 @@ body {
   width: 70%;
   height: 10%;
   border-radius: 10px;
-  /* border-style: none; */
   font-family: 'Open Sans';
   font-weight: bold;
   font-size: 25px;
@@ -146,7 +139,6 @@ body {
 .comment-card-container {
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .whole-card {
@@ -159,7 +151,6 @@ body {
   margin: 12px;
 }
 
-
 .top-of-comment {
   display: flex;
   justify-content: space-between;
@@ -169,7 +160,6 @@ body {
   color: white;
   height: 10%;
   width: 100%;
-  /* border: 10px solid red; */
 }
 
 .comment-area {
@@ -178,7 +168,6 @@ body {
   align-items: flex-start;
   height: 80%;
   width: 100%;
-  /* font-size: 12px; */
   padding: 5px;
 }
 
@@ -195,12 +184,7 @@ body {
 
 .comment {
   height: 80%;
-  /* background-color: pink; */
 }
-/* .comment-text {
-  display: flex;
-
-} */
 
 .cursor-change {
   cursor: pointer;
