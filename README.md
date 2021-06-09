@@ -1,6 +1,5 @@
- #IdeaBox![mainPage](https://user-images.githubusercontent.com/78764587/121282388-a68f7080-c896-11eb-97cc-ea34a2e27e49.jpg)
-![savedCardsOverflow](https://user-images.githubusercontent.com/78764587/121282392-a7280700-c896-11eb-8580-983b2f5c27b5.jpg)
-![showSaved](https://user-images.githubusercontent.com/78764587/121282393-a7280700-c896-11eb-82f2-8d3da778f7f7.jpg)
+ #IdeaBox!
+
 
 ___
 ## Contributors
