@@ -21,4 +21,4 @@ ___
 ![showSaved](https://user-images.githubusercontent.com/78764587/121282550-f2dab080-c896-11eb-864e-dfff5e407911.jpg)
 
 ## Project Notes:
-The rest of iteration 4 still needs to be completed. 
+Our focus was writting clean and DRY code and having the CSS be responsive to webbrowser size. The rest of iteration 4 still needs to be completed. 
