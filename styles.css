@@ -29,7 +29,7 @@ body {
   color: #E9E9F3;
 }
 
-.filter{
+.filter {
   border-top: 2px solid #353567;
   border-bottom:  2px solid #353567;
   padding-bottom: 40px;
@@ -119,10 +119,10 @@ body {
   background-color: #1F1F3D;
 }
 
-/* .magnify-img {
-  padding: 20px;
-  width: 25%;
-} */
+.magnify-btn {
+  padding: 10px;
+  width:10%;
+}
 
 .save-btn {
   background-color: #1F1F3D;
@@ -139,6 +139,7 @@ body {
 .comment-card-container {
   display: flex;
   flex-wrap: wrap;
+  max-height: 65%
 }
 
 .whole-card {
