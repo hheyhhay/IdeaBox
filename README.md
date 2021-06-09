@@ -1,3 +1,4 @@
+
  #IdeaBox!
 
 
@@ -14,6 +15,10 @@ ___
 
 - The webpage can be viewed here (https://nataliemcintyre2021.github.io/IdeaBox/)
 ## Main Page
+
+![mainPage](https://user-images.githubusercontent.com/78764587/121282548-f2421a00-c896-11eb-9243-5dbc84537f9d.jpg)
+![savedCardsOverflow](https://user-images.githubusercontent.com/78764587/121282549-f2421a00-c896-11eb-84e8-565e3330fd75.jpg)
+![showSaved](https://user-images.githubusercontent.com/78764587/121282550-f2dab080-c896-11eb-864e-dfff5e407911.jpg)
 
 ## Project Notes:
 I tried to refractor the code to be more readable. Would like to explore more ways to simplify the code.
