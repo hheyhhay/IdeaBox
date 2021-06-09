@@ -1,3 +1,4 @@
+
 var savedIdeas=[];
 var currentIdea = "";
 var deletedIdea = "";
@@ -75,6 +76,7 @@ function clearsInput(){
 function modifiesCard(event){
   selectedCard = event.target.parentNode.parentNode;
   if (event.target.className === "btTxt submit delete-btn") {
+
       deleteCard();
     } else if (event.target.className === "btTxt submit star") {
       starsCard();
@@ -128,7 +130,6 @@ function favoriteStar(selectedCard) {
   }
 };
 
-
 function renderCard(){
 var ideaHTML = "";
 for (var i = 0; i<savedIdeas.length; i++){
@@ -149,6 +150,7 @@ for (var i = 0; i<savedIdeas.length; i++){
   }
   commentCardSection.innerHTML = ideaHTML;
 };
+
 
 
 
