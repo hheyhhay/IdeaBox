@@ -13,7 +13,7 @@ var wholeCard = document.querySelector('.whole-card');
 var commentCardSection = document.querySelector('.comment-card-container');
 var cardTop = document.querySelector('.top-of-comment');
 
-//
+
 
 bodyInput.addEventListener('input', enableButton);
 commentCardSection.addEventListener('click', function(){
@@ -48,6 +48,7 @@ function enableButton() {
   if ((titleInput.value === "") || (bodyInput.value === "")) {
     removeClass(saveBtn, 'cursor-change');
     addClass(saveBtn, 'button-change')
+    saveBtn.disabled = true;
   } else if (titleInput.value !=="" && bodyInput.value !=="") {
     saveBtn.disabled = false;
     addClass(saveBtn, 'cursor-change')
@@ -56,7 +57,7 @@ function enableButton() {
 }
 
 function savesCard(){
-  currentIdea = {title: titleInput.value, body: bodyInput.value}
+currentIdea = {title: titleInput.value, body: bodyInput.value}
   currentIdea = new Idea(currentIdea)
  savedIdeas.push(currentIdea);
  renderCard();
@@ -150,27 +151,3 @@ for (var i = 0; i<savedIdeas.length; i++){
   }
   commentCardSection.innerHTML = ideaHTML;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///
