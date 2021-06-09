@@ -21,4 +21,4 @@ ___
 ![showSaved](https://user-images.githubusercontent.com/78764587/121282550-f2dab080-c896-11eb-864e-dfff5e407911.jpg)
 
 ## Project Notes:
-I tried to refractor the code to be more readable. Would like to explore more ways to simplify the code.
+Iteration 4 still needs to be completed. 
