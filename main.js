@@ -14,7 +14,6 @@ var commentCardSection = document.querySelector('.comment-card-container');
 var cardTop = document.querySelector('.top-of-comment');
 var starBtn = document.querySelector('.show-star-btn');
 
-//
 
 bodyInput.addEventListener('input', enableButton);
 commentCardSection.addEventListener('click', function(){
@@ -167,25 +166,3 @@ function showStarred(){
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///
