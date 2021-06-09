@@ -12,6 +12,7 @@ var commentText = document.querySelector('.comment-area');
 var wholeCard = document.querySelector('.whole-card');
 var commentCardSection = document.querySelector('.comment-card-container');
 var cardTop = document.querySelector('.top-of-comment');
+var starBtn = document.querySelector('.show-star-btn');
 
 //
 
@@ -22,6 +23,7 @@ commentCardSection.addEventListener('click', function(){
 saveBtn.disabled = true;
 saveBtn.addEventListener('click', savesCard);
 titleInput.addEventListener('input', enableButton);
+starBtn.addEventListener('click', showStarred);
 window.addEventListener('load', loadLocalStorage);
 
 
@@ -33,7 +35,7 @@ function loadLocalStorage() {
     parsedIdea = JSON.parse(savedIdeasValues[i]);
     var currentIdea = new Idea(parsedIdea)
     savedIdeas.push(currentIdea)
-  } renderCard();
+  } renderCard(savedIdeas);
 }
 
 function removeClass(element, className ){
@@ -47,8 +49,9 @@ function addClass(element, className){
 function enableButton() {
   if ((titleInput.value === "") || (bodyInput.value === "")) {
     removeClass(saveBtn, 'cursor-change');
-    addClass(saveBtn, 'button-change')
-  } else if (titleInput.value !=="" && bodyInput.value !=="") {
+    addClass(saveBtn, 'button-change');
+    saveBtn.disabled = true;
+  } else if (titleInput.value !== "" && bodyInput.value !=="") {
     saveBtn.disabled = false;
     addClass(saveBtn, 'cursor-change')
     removeClass(saveBtn, 'button-change');
@@ -59,7 +62,7 @@ function savesCard(){
   currentIdea = {title: titleInput.value, body: bodyInput.value}
   currentIdea = new Idea(currentIdea)
  savedIdeas.push(currentIdea);
- renderCard();
+ renderCard(savedIdeas);
  clearsInput();
  enableButton();
  currentIdea.saveToStorage();
@@ -76,7 +79,6 @@ function clearsInput(){
 function modifiesCard(event){
   selectedCard = event.target.parentNode.parentNode;
   if (event.target.className === "btTxt submit delete-btn") {
-
       deleteCard();
     } else if (event.target.className === "btTxt submit star") {
       starsCard();
@@ -96,7 +98,7 @@ function deleteCard(){
      if (savedIdeas[i].id === Number(selectedCard.id)) {
         deleteIdea = savedIdeas[i];
         savedIdeas.splice(i, 1);
-        renderCard();
+        renderCard(savedIdeas);
         deleteIdea.deleteFromStorage();
        }
     }
@@ -121,26 +123,26 @@ function starsCard(){
 function favoriteStar(selectedCard) {
   if (selectedCard.star){
      selectedCard.starSrc = 'images/star-active.svg';
-     renderCard();
+     renderCard(savedIdeas);
      selectedCard.updateIdea();
   } else if (!selectedCard.star){
     selectedCard.starSrc = 'images/star.svg';
-    renderCard();
+    renderCard(savedIdeas);
     selectedCard.updateIdea();
   }
 };
 
-function renderCard(){
+function renderCard(displayCards){
 var ideaHTML = "";
-for (var i = 0; i<savedIdeas.length; i++){
-    ideaHTML += `<div class="whole-card" id= "${savedIdeas[i].id}">
+for (var i = 0; i<displayCards.length; i++){
+    ideaHTML += `<div class="whole-card" id= "${displayCards[i].id}">
     <div class="top-of-comment">
-    <input type="image" src = "${savedIdeas[i].starSrc}" name= "star-images" name="star" class = "btTxt submit star" />
+    <input type="image" src = "${displayCards[i].starSrc}" name= "star-images" name="star" class = "btTxt submit star" />
     <input type="image" src = "images/delete.svg" alt= "delete-img" name= "delete" class = "btTxt submit delete-btn" />
     </div>
     <div class="comment-area">
-     <h2 class="card-title">${savedIdeas[i].title}</h2>
-   <p class="card-body" >${savedIdeas[i].body}</p>
+     <h2 class="card-title">${displayCards[i].title}</h2>
+   <p class="card-body" >${displayCards[i].body}</p>
     </div>
     <div class="comment-section">
       <input type="image" src = "images/comment.svg" name="comment" alt ="comment-img" class= "btTxt submit comment"/>
@@ -150,3 +152,40 @@ for (var i = 0; i<savedIdeas.length; i++){
   }
   commentCardSection.innerHTML = ideaHTML;
 };
+
+function clearCard(){
+  commentCardSection.innerHTML = "";
+}
+
+function showStarred(){
+  var favoritedCards = [];
+  for (var i =0; i<savedIdeas.length; i++){
+    if (savedIdeas[i]['star']){
+      clearCard();
+      favoritedCards.push(savedIdeas[i])
+      renderCard(favoritedCards);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///
