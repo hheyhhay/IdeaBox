@@ -13,7 +13,7 @@ ___
 - The project _IdeaBox_ allows the user to store, display, favorite, and delete their ideas. The user will input the title and their idea in the form and submit their response. Once submitted, a new card will populate with the user's idea. The user can add as many ideas as they'd like and can delete or favorite each one. If the user exits the page, their saved comment card collection will reload with the page. If a user deletes the idea, the idea is deleted from storage. The user can toggle back and forth between favorite and unfavoriting each idea. 
 ## Viewing the displayMessage
 
-- The webpage can be viewed here (https://nataliemcintyre2021.github.io/IdeaBox/)
+- The webpage can be viewed here (https://hheyhhay.github.io/IdeaBox/)
 ## Main Page
 
 ![mainPage](https://user-images.githubusercontent.com/78764587/121282548-f2421a00-c896-11eb-9243-5dbc84537f9d.jpg)
